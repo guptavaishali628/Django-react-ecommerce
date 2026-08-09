@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # REST Framework and store app add here
     'rest_framework', 
     'store',
+    'corsheaders',  # Add this line for CORS
 ]
 
 MIDDLEWARE = [
@@ -136,5 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS configuration 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # React app running on localhost:3000
+    "http://localhost:3000",  # React app url
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",  # Agar Vite React hai
 ]
