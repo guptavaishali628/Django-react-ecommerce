@@ -3,10 +3,11 @@ from .models import Category, Product
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category(readonly=True)
+        model = Category
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer(read_only=True)  # category object include karne k liye
     class Meta:
-        model = Product(readonly=True)
+        model = Product
         fields = '__all__'   

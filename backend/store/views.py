@@ -1,10 +1,16 @@
-from rest_framework.response import Rresponse
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Category, Product
 from .serializers import CategorySerializer, ProductSerializer
 
 @api_view(['GET'])
-def category_list(request):
-    categories = Category.objects.all()
-    serializer = CategorySerializer(categories, many=True)
+def get_products(request):
+    product = Product.objects.all()
+    serializer = ProductSerializer(product, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def get_categories(request):    
+    category = Category.objects.all()
+    serializer = CategorySerializer(category, many=True)
     return Response(serializer.data)
