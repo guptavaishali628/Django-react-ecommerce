@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'store',
     'corsheaders',  # Add this line for CORS
+
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:5173",  # Agar Vite React hai
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
