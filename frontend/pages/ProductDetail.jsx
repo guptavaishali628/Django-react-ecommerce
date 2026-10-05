@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 function ProductDetail() {
     const {id} = useParams();
-    const BASEURL = import.meta.env.VITE_BACKEND_URL;
+    const BASEURL = import.meta.env.VITE_DJANGO_BASE_URL;
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -30,11 +30,11 @@ function ProductDetail() {
     if (!product) return <div>Product not found</div>;
 
     return (
-        <div className="min-h-screen bg-gray-100 justify-center items-center py-10">
+        <div className="min-h-screen bg-gray-100 justify-center items-center">
             <div className="bg-white shadow-lg rounded-2xl p-8 max-w-3xl w-full">
                 <div className="flex flex-col md:flex-row gap-8">
                     <img 
-                    src={`${BASEURL}${product.image}`} 
+                    src={`${product.image}`} 
                     alt={product.name} 
                     className="w-full md:w-1/2 h-auto object-cover rounded-lg"
                     />
@@ -50,6 +50,15 @@ function ProductDetail() {
                         <button className="mt-6 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors">
                             Add to Cart 🛒
                         </button>
+                        {/* Home Button */}
+                        <div className="mt-4">
+                            <a
+                              href="/"
+                              className="text-blue-600 hover:underline"
+                            >
+                              &larr; Back to Home
+                            </a>
+                        </div>
                     </div>    
                 </div>    
             </div>
